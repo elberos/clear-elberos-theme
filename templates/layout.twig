@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+	<title>{{ function('the_title') }}</title>
+	<meta charset="{{ function('bloginfo', 'charset') }}" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	{{ function('wp_head') }}
+	{% block head %}
+	{% endblock %}
+</head>
+{% block body %}
+<body {{ function('body_class') }}>
+	{% block header %}
+	{% include 'include/header.twig' %}
+	{% endblock %}
+	{% block content %}{% endblock %}
+	{% block footer %}
+	{% include 'include/footer.twig' %}
+	{% endblock %}
+	{{ function('wp_footer') }}
+</body>
+{% endblock %}
+</html>

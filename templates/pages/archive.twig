@@ -1,0 +1,36 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+<section class="page_category">
+	<div class="section_wrap">
+		{% set category = function("get_the_category") %}
+		{% set have_posts = function("have_posts") %}
+		{% set query = wp_query() %}
+		{% set posts = query.get_posts() %}
+		{% set posts = elberos("get_posts_images", posts) %}
+		
+		<h1 class="page_title">{{ category[0].name }}</h1>
+		
+		{% if count(posts) > 0 %}
+			<div class="page_category__items">
+				{% for post in posts %}
+					{% set post_link = function("get_permalink", post) %}
+					<div class="page_category__item">
+						<a class="page_category__item_title nolink" href="{{ post_link }}">
+							{{ post.post_title }}
+						</a>
+						<a class="page_category__item_image nolink" href="{{ post_link }}"
+							style="background-image: url({{post.main_photo[0].sizes.medium.url}})"
+						></a>
+					</div>
+				{% endfor %}
+			</div>
+		{% else %}
+			<div class="page_category__items_not_found">
+				По вашему запросу ничего не найдено
+			</div>
+		{% endif %}
+		
+	</div>
+</section>
+{% endblock %}

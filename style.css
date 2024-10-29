@@ -1,0 +1,23 @@
+/*
+Theme Name: Clear Elberos Theme
+Description: Clear Elberos Theme
+*/
+
+body{
+	margin: 0px;
+	padding: 0px;
+}
+.section_wrap{
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.section_footer{
+	color: white;
+}
+.section_footer .wp-block-columns{
+	margin-bottom: 0px;
+}

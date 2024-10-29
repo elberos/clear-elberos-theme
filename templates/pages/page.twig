@@ -1,0 +1,10 @@
+{% extends "layout.twig" %}
+
+{% block content %}
+<section class="page_post">
+	<div class="section_wrap">
+		<h1 class="page_title">{{ function("the_title") }}</h1>
+		<div class="page_content">{{ function("the_content") }}</div>
+	</div>
+</section>
+{% endblock %}
