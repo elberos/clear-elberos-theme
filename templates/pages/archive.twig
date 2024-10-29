@@ -4,10 +4,9 @@
 <section class="page_category">
 	<div class="section_wrap">
 		{% set category = function("get_the_category") %}
-		{% set have_posts = function("have_posts") %}
 		{% set query = wp_query() %}
 		{% set posts = query.get_posts() %}
-		{% set posts = elberos("get_posts_images", posts) %}
+		{% set posts = function("\\Elberos\\Helper::get_posts_images", posts) %}
 		
 		<h1 class="page_title">{{ category[0].name }}</h1>
 		
